@@ -4,6 +4,7 @@ import (
 	"log"
 
 	"cloud.google.com/go/translate"
+	"google.golang.org/api/option"
 
 	"golang.org/x/net/context"
 	"golang.org/x/text/language"
@@ -63,7 +64,8 @@ func detectLanguage(text string) (language.Tag, error) {
 
 	ctx := context.Background()
 
-	client, err := translate.NewClient(ctx)
+	opt := option.WithCredentialsFile(config.CredentialsFile)
+	client, err := translate.NewClient(ctx, opt)
 	if err != nil {
 		log.Fatalf("Failed to create client: %v", err)
 		return language.Und, err
@@ -84,7 +86,8 @@ func doTranslation(text string, target language.Tag) (string, error) {
 	ctx := context.Background()
 	result := ""
 
-	client, err := translate.NewClient(ctx)
+	opt := option.WithCredentialsFile(config.CredentialsFile)
+	client, err := translate.NewClient(ctx, opt)
 	if err != nil {
 		log.Fatalf("Failed to create client: %v", err)
 		return result, err
