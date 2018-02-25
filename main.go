@@ -61,7 +61,7 @@ func main() {
 	app := cli.NewApp()
 	app.Name = "trans"
 	app.Usage = "translator"
-	app.Description = "command-line tool for Google translator"
+	app.Description = "command-line translation tool using the Google translation API"
 	app.Version = version
 
 	app.Action = mainAction
