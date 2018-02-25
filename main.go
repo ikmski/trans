@@ -1,6 +1,11 @@
 package main
 
-import "github.com/urfave/cli"
+import (
+	"bufio"
+	"os"
+
+	"github.com/urfave/cli"
+)
 
 var (
 	version  string
@@ -9,9 +14,44 @@ var (
 
 func mainAction(c *cli.Context) error {
 
-	t := newTrans()
+	translation := newTranslation()
+	screen := newScreen()
 
-	t.run()
+	screen.render(translation)
+
+	doneCh := make(chan bool)
+	inputCh := make(chan string)
+	defer close(doneCh)
+	defer close(inputCh)
+
+	go func() {
+		scanner := bufio.NewScanner(os.Stdin)
+		for scanner.Scan() {
+
+			if scanner.Text() == "quit" {
+				doneCh <- true
+				break
+
+			} else {
+
+				inputCh <- scanner.Text()
+			}
+		}
+	}()
+
+loop:
+	for {
+		select {
+
+		case <-doneCh:
+			break loop
+
+		case text := <-inputCh:
+			translation.do(text)
+			screen.render(translation)
+
+		}
+	}
 
 	return nil
 }

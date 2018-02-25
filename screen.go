@@ -17,7 +17,17 @@ func newScreen() *screen {
 	return s
 }
 
-func (s *screen) render(text string) {
+func (s *screen) render(t *translation) {
+
+	s.clear()
+
+	fmt.Print("# Google Translation\n\n")
+	fmt.Printf("Text: %s\n\n", t.text)
+	fmt.Printf("Result: %s\n\n", t.result)
+	fmt.Print("> ")
+}
+
+func (s *screen) clear() {
 
 	if runtime.GOOS == "windows" {
 		cmd := exec.Command("cls")
@@ -29,5 +39,4 @@ func (s *screen) render(text string) {
 		cmd.Run()
 	}
 
-	fmt.Print("> ")
 }
