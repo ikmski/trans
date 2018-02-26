@@ -13,6 +13,12 @@
   version = "v0.18.0"
 
 [[projects]]
+  name = "github.com/BurntSushi/toml"
+  packages = ["."]
+  revision = "b26d9c308763d68093482582cea63d69be07a0f0"
+  version = "v0.3.0"
+
+[[projects]]
   name = "github.com/golang/protobuf"
   packages = [
     "proto",
@@ -148,6 +154,6 @@
 [solve-meta]
   analyzer-name = "dep"
   analyzer-version = 1
-  inputs-digest = "57d5d7868da0a635d6e7148bf2498aa27487df6a7189400fe4871282e616dd92"
+  inputs-digest = "a6bb4986f8303753c00932d1833034d478abb020b92cc868a4180be01344044a"
   solver-name = "gps-cdcl"
   solver-version = 1
