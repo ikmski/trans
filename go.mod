@@ -9,7 +9,7 @@ require (
 	github.com/golang/protobuf v1.0.0 // indirect
 	github.com/google/go-cmp v0.3.0 // indirect
 	github.com/urfave/cli v1.20.0
-	golang.org/x/net v0.0.0-20180218175443-cbe0f9307d01
+	golang.org/x/net v0.0.0-20180218175443-cbe0f9307d01 // indirect
 	golang.org/x/oauth2 v0.0.0-20180207181906-543e37812f10 // indirect
 	golang.org/x/sync v0.0.0-20190423024810-112230192c58 // indirect
 	golang.org/x/text v0.3.0
