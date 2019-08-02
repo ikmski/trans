@@ -5,6 +5,7 @@ go 1.12
 require (
 	cloud.google.com/go v0.18.0
 	github.com/BurntSushi/toml v0.3.0
+	github.com/atotto/clipboard v0.1.2
 	github.com/golang/glog v0.0.0-20160126235308-23def4e6c14b // indirect
 	github.com/golang/protobuf v1.0.0 // indirect
 	github.com/google/go-cmp v0.3.0 // indirect

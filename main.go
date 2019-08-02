@@ -7,6 +7,7 @@ import (
 	"path/filepath"
 
 	"github.com/BurntSushi/toml"
+	"github.com/atotto/clipboard"
 	"github.com/urfave/cli"
 )
 
@@ -58,6 +59,7 @@ loop:
 		case text := <-inputCh:
 			translation.do(text)
 			screen.render(translation)
+			clipboard.WriteAll(translation.result)
 
 		}
 	}
